@@ -1,38 +1,130 @@
 .App {
-  text-align: center;
+  font-family: Arial, sans-serif;
+  color: #333;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* Navigation Header styling */
+.navbar {
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
+  padding: 1rem 2rem;
+  background-color: #1f2937;
+  color: #ffffff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.nav-logo h2 {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.nav-links a {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: color 0.2s ease-in-out;
+}
+
+.nav-links a:hover {
+  color: #60a5fa;
+}
+
+/* Section styling for testing scroll */
+.main-content {
+  padding: 2rem;
+}
+
+.section {
+  min-height: 80vh;
+  padding: 2rem 0;
+}
+
+/* Main Split Layout */
+.main-container {
+  display: flex;
+  min-height: calc(100vh - 65px); /* Fill remaining page height below navbar */
+}
+
+/* Left Side: 1/3 width with pink background */
+.left-sidebar {
+  flex: 1; /* Takes 1 part (~33%) */
+  background-color: #ffe4e6; /* Soft pink background */
+  display: flex;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+  padding: 2rem;
+}
+.profile-img {
+  width: 240px;
+  height: 320px;           /* 3:4 portrait rectangle ratio */
+  border-radius: 8px;
+  object-fit: cover;       /* Fills the 240x320 box */
+  border: 4px solid #ffffff;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
 }
 
-.App-link {
-  color: #61dafb;
+/* Right Side: 2/3 width with background photo */
+/* Right Side Layout */
+.right-content {
+  flex: 2;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('images/background.jpeg');
+  background-size: 100% 100%;      /* Stretches image to cover full width & height */
+  background-position: center;
+  background-repeat: no-repeat;
+  
+  padding: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* Button Container side-by-side */
+.button-group {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+/* Compact Section Buttons */
+.section-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem 2rem;
+  
+  background-color: rgba(31, 41, 55, 0.85); /* Semi-transparent dark background */
+  color: #ffffff;
+  border: 2px solid #60a5fa;
+  border-radius: 50px;                       /* Rounded pill shape */
+  
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  backdrop-filter: blur(4px);
+  transition: all 0.25s ease-in-out;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.btn-icon {
+  font-size: 1.3rem;
+}
+
+/* Hover & Active Effects */
+.section-btn:hover {
+  background-color: #60a5fa;
+  color: #1f2937;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(96, 165, 250, 0.4);
+}
+
+.section-btn:active {
+  transform: translateY(0);
 }

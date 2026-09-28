@@ -1,38 +1,274 @@
 .App {
-  text-align: center;
+  font-family: Arial, sans-serif;
+  color: #333;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* Navigation Header styling */
+.navbar {
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
+  padding: 1rem 2rem;
+  background-color: #1f2937;
+  color: #ffffff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.nav-logo h2 {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.nav-links a {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: color 0.2s ease-in-out;
+}
+
+.nav-links a:hover {
+  color: #60a5fa;
+}
+
+/* Section styling for testing scroll */
+.main-content {
+  padding: 2rem;
+}
+
+.section {
+  min-height: 80vh;
+  padding: 2rem 0;
+}
+
+/* Full Width Main Section with Background Image */
+.main-content {
+  min-height: calc(100vh - 65px);
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('images/background.JPG');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  
+  display: flex;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: flex-start;
+  padding-top: 3rem;         /* Distance below the navbar */
+  padding-left: 2rem;
+  padding-right: 2rem;
 }
 
-.App-link {
-  color: #61dafb;
+/* Centered Content Card */
+.profile-card {
+  background-color: transparent;
+  border-radius: 16px;
+  padding: 3rem 2.5rem;
+  max-width: 750px;
+  width: 100%;
+  color: #ffffff;
+  box-shadow: none;
+  backdrop-filter:none;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* Side-by-Side Flex Container for Photo & Text */
+.profile-header {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+/* Circular Profile Frame */
+.profile-circle-img {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;                     /* Perfect Circle Frame */
+  object-fit: cover;
+  border: 4px solid #60a5fa;              /* Blue accent border */
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
+  margin-bottom: 1.5rem;
+}
+
+/* Text Styling */
+.dev-title {
+  margin: 0 0 0.5rem 0;
+  font-size: 2rem;
+  color: #ffffff;
+}
+
+.dev-intro {
+  font-size: 1.15rem;
+  line-height: 1.6;
+  color: #d1d5db;
+  margin-bottom: 2rem;
+}
+
+.dev-intro strong {
+  color: #60a5fa;                         /* Highlight .NET Developer */
+}
+
+/* Button Group */
+.button-group {
+  display: flex;
+  justify-content: center;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+}
+
+.section-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.85rem 1.75rem;
+  
+  background-color: transparent;
+  color: #ffffff;
+  border: 2px solid #60a5fa;
+  border-radius: 50px;
+  
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.25s ease-in-out;
+}
+
+.section-btn:hover {
+  background-color: #60a5fa;
+  color: #1f2937;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(96, 165, 250, 0.4);
+}
+
+html { scroll-behavior: smooth; }
+
+.navbar { position: sticky; top: 0; z-index: 10; }
+
+/* Keep section headings clear of the sticky navbar when scrolling */
+.content-section { scroll-margin-top: 80px; }
+
+/* Content below the hero */
+.content {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem 4rem;
+}
+
+.content-section {
+  min-height: auto;            /* overrides the 80vh from .section */
+  padding: 2.5rem 0;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.content-section:last-child { border-bottom: none; }
+
+.content-section h2 {
+  font-size: 1.75rem;
+  margin: 0 0 1.25rem;
+  color: #1f2937;
+}
+
+.content-section h3 { margin: 0 0 0.35rem; font-size: 1.05rem; color: #1f2937; }
+.content-section p { line-height: 1.7; max-width: 70ch; }
+.muted { color: #6b7280; font-size: 0.95rem; }
+
+/* Timeline (experience + education) */
+.timeline {
+  border-left: 3px solid #60a5fa;
+  padding-left: 1.5rem;
+  display: grid;
+  gap: 1.75rem;
+}
+
+.timeline-item { position: relative; }
+
+.timeline-item::before {
+  content: "";
+  position: absolute;
+  left: calc(-1.5rem - 8px);
+  top: 0.35rem;
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  background: #60a5fa;
+  border: 3px solid #fff;
+}
+
+.timeline-item .period { margin: 0; font-size: 0.85rem; color: #6b7280; }
+.timeline-item .org { margin: 0 0 0.5rem; font-weight: 600; color: #374151; }
+.timeline-item ul { margin: 0; padding-left: 1.1rem; }
+.timeline-item li { line-height: 1.6; margin-bottom: 0.25rem; }
+
+/* Skills */
+.skills-grid,
+.interest-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
+}
+
+.chips { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.5rem; }
+
+.chip {
+  padding: 0.3rem 0.8rem;
+  border-radius: 50px;
+  background: #eff6ff;
+  color: #1e3a8a;
+  border: 1px solid #bfdbfe;
+  font-size: 0.9rem;
+}
+
+/* Contact buttons on a light background */
+.contact-buttons { justify-content: flex-start; margin-top: 1.25rem; }
+
+.section-btn.dark {
+  color: #1f2937;
+  text-decoration: none;
+}
+
+.section-btn.dark:hover { color: #1f2937; }
+
+.section-btn:focus-visible,
+.nav-links a:focus-visible {
+  outline: 3px solid #60a5fa;
+  outline-offset: 3px;
+}
+
+.footer {
+  background: #1f2937;
+  color: #9ca3af;
+  text-align: center;
+  padding: 1.25rem;
+  font-size: 0.9rem;
+}
+
+/* Mobile: stack the photo above the text and tighten the navbar */
+@media (max-width: 640px) {
+  .navbar { flex-direction: column; gap: 0.75rem; padding: 1rem; }
+  .nav-links { flex-wrap: wrap; justify-content: center; gap: 1rem; }
+  .profile-header { flex-direction: column; text-align: center; }
+  .profile-card { padding: 2rem 0.5rem; }
+  .main-content { padding-left: 1rem; padding-right: 1rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .section-btn { transition: none; }
+}
+.nav-logo a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.nav-logo a:hover h2 {
+  color: #60a5fa;
+}
+
+.nav-logo a:focus-visible {
+  outline: 3px solid #60a5fa;
+  outline-offset: 4px;
 }

@@ -197,7 +197,7 @@ function App() {
           <p>Want to talk about a role or a project? Get in touch.</p>
           <div className="button-group contact-buttons">
             <a className="section-btn dark" href="mailto:dwinalarsson@gmail.com">Email</a>
-            <a className="section-btn dark" href="tel:0706145424">070 614 54 24</a>
+            {/* <a className="section-btn dark" href="tel:0706145424">070 614 54 24</a> */}
             <a className="section-btn dark" href="https://www.linkedin.com/in/dwina-larsson/" target="_blank" rel="noreferrer">LinkedIn</a>
             <a className="section-btn dark" href="https://github.com/Dwina83" target="_blank" rel="noreferrer">GitHub</a>
           </div>

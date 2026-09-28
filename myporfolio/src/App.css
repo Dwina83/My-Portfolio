@@ -143,3 +143,119 @@
   transform: translateY(-2px);
   box-shadow: 0 6px 16px rgba(96, 165, 250, 0.4);
 }
+
+html { scroll-behavior: smooth; }
+
+.navbar { position: sticky; top: 0; z-index: 10; }
+
+/* Keep section headings clear of the sticky navbar when scrolling */
+.content-section { scroll-margin-top: 80px; }
+
+/* Content below the hero */
+.content {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem 4rem;
+}
+
+.content-section {
+  min-height: auto;            /* overrides the 80vh from .section */
+  padding: 2.5rem 0;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.content-section:last-child { border-bottom: none; }
+
+.content-section h2 {
+  font-size: 1.75rem;
+  margin: 0 0 1.25rem;
+  color: #1f2937;
+}
+
+.content-section h3 { margin: 0 0 0.35rem; font-size: 1.05rem; color: #1f2937; }
+.content-section p { line-height: 1.7; max-width: 70ch; }
+.muted { color: #6b7280; font-size: 0.95rem; }
+
+/* Timeline (experience + education) */
+.timeline {
+  border-left: 3px solid #60a5fa;
+  padding-left: 1.5rem;
+  display: grid;
+  gap: 1.75rem;
+}
+
+.timeline-item { position: relative; }
+
+.timeline-item::before {
+  content: "";
+  position: absolute;
+  left: calc(-1.5rem - 8px);
+  top: 0.35rem;
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  background: #60a5fa;
+  border: 3px solid #fff;
+}
+
+.timeline-item .period { margin: 0; font-size: 0.85rem; color: #6b7280; }
+.timeline-item .org { margin: 0 0 0.5rem; font-weight: 600; color: #374151; }
+.timeline-item ul { margin: 0; padding-left: 1.1rem; }
+.timeline-item li { line-height: 1.6; margin-bottom: 0.25rem; }
+
+/* Skills */
+.skills-grid,
+.interest-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
+}
+
+.chips { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.5rem; }
+
+.chip {
+  padding: 0.3rem 0.8rem;
+  border-radius: 50px;
+  background: #eff6ff;
+  color: #1e3a8a;
+  border: 1px solid #bfdbfe;
+  font-size: 0.9rem;
+}
+
+/* Contact buttons on a light background */
+.contact-buttons { justify-content: flex-start; margin-top: 1.25rem; }
+
+.section-btn.dark {
+  color: #1f2937;
+  text-decoration: none;
+}
+
+.section-btn.dark:hover { color: #1f2937; }
+
+.section-btn:focus-visible,
+.nav-links a:focus-visible {
+  outline: 3px solid #60a5fa;
+  outline-offset: 3px;
+}
+
+.footer {
+  background: #1f2937;
+  color: #9ca3af;
+  text-align: center;
+  padding: 1.25rem;
+  font-size: 0.9rem;
+}
+
+/* Mobile: stack the photo above the text and tighten the navbar */
+@media (max-width: 640px) {
+  .navbar { flex-direction: column; gap: 0.75rem; padding: 1rem; }
+  .nav-links { flex-wrap: wrap; justify-content: center; gap: 1rem; }
+  .profile-header { flex-direction: column; text-align: center; }
+  .profile-card { padding: 2rem 0.5rem; }
+  .main-content { padding-left: 1rem; padding-right: 1rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .section-btn { transition: none; }
+}

@@ -86,7 +86,11 @@ function App() {
   return (
     <div className="App">
       <nav className="navbar">
-        <div className="nav-logo"><h2>Dwina Larsson</h2></div>
+        <div className="nav-logo">
+          <a href="#home" onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); }}>
+          <h2>Dwina Larsson</h2>
+          </a>
+        </div>
         <div className="nav-links">
           <a href="#about">About</a>
           <a href="#experience">Experience</a>
